@@ -12,8 +12,6 @@ from api_v1.products.views import router as products_route
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with db_helper.engine.begin() as conn:
-        await init_db()
     yield
 
 

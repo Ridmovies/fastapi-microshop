@@ -62,7 +62,7 @@ uvicorn main:app --reload
 
 ### Создайте директорию для хранения конфигурационных файлов и скриптов миграции:
 ```bash
-alembic init migrations
+alembic init -t async alembic
 ```
 
 ### Генерация первой миграции
