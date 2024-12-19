@@ -1,9 +1,12 @@
+from sqlalchemy import select, Result
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from core.models.models import User
 from users.schemas import CreateUser
 
 
-def create_user(user_in: CreateUser) -> dict:
-    user = user_in.model_dump()
-    return {
-        "success": True,
-        "user": user,
-    }
+async def get_all_users(session: AsyncSession):
+    query = select(User)
+    result: Result = await session.execute(query)
+    users = result.scalars().all()
+    return list(users)

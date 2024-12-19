@@ -4,7 +4,7 @@ from typing_extensions import Annotated
 
 from api_v1.products import crud
 from core.models.database import SessionDep
-from core.models.product import Product
+from core.models.models import Product
 
 
 async def product_by_id(

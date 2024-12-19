@@ -1,5 +1,11 @@
+from typing import TYPE_CHECKING
+
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import declared_attr, Mapped, mapped_column, relationship
+
+
+if TYPE_CHECKING:
+    from core.models.user import User  # noqa
 
 
 class UserRelationMixin:

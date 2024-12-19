@@ -25,15 +25,16 @@ async_session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
 class Base(DeclarativeBase):
     """Класс Base наследуется от DeclarativeBase
-    и служит основой для определения моделей базы данных."""
+    # и служит основой для определения моделей базы данных."""
 
-    __abstract__ = True
-
-    @declared_attr.directive
-    def __tablename__(cls) -> str:
-        return f"{cls.__name__.lower()}"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
+    #
+    # __abstract__ = True
+    #
+    # # @declared_attr.directive
+    # # def __tablename__(cls) -> str:
+    # #     return f"{cls.__name__.lower()}"
+    #
+    # id: Mapped[int] = mapped_column(primary_key=True)
 
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:

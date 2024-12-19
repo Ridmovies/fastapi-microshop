@@ -9,10 +9,12 @@ from alembic import context
 
 from core.config import settings
 from core.models.database import Base
-from core.models.product import Product  # noqa
-from core.models.user import User  # noqa
-from core.models.post import Post  # noqa
-from core.models.profile import Profile  # noqa
+
+# from core.models.user import User  # noqa
+# from core.models.product import Product  # noqa
+# from core.models.post import Post  # noqa
+# from core.models.profile import Profile  # noqa
+from core.models.models import User, Profile, Post, Product  # noqa
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
