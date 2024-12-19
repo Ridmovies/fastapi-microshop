@@ -24,8 +24,6 @@ class Base(DeclarativeBase):
     """Класс Base наследуется от DeclarativeBase
     и служит основой для определения моделей базы данных."""
 
-    pass
-
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:
     """Функция get_session создает асинхронную сессию с базой данных

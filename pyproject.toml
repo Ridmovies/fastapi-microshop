@@ -15,6 +15,7 @@ poetry = "^1.8.4"
 pydantic = {extras = ["email"], version = "^2.10.3"}
 sqlalchemy = "^2.0.36"
 aiosqlite = "^0.20.0"
+pyright = "^1.1.391"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -24,3 +25,9 @@ pytest = "^8.3.4"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+exclude = [".venv", "core/models/db_helper.py"]
