@@ -66,4 +66,3 @@ async def delete_product(
     session: SessionDep, product: Product = Depends(product_by_id)
 ) -> None:
     await crud.delete_product(session=session, product=product)
-
