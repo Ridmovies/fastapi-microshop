@@ -3,7 +3,6 @@ from contextlib import asynccontextmanager
 import uvicorn
 from fastapi import FastAPI
 
-from core.models.base import Base
 from core.models.database import init_db
 from core.models.db_helper import db_helper
 from items_views import router as items_route

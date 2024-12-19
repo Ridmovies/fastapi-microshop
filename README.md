@@ -58,6 +58,23 @@ uvicorn main:app --reload
 
 ## Разработка
 
+### Alembic
+
+### Создайте директорию для хранения конфигурационных файлов и скриптов миграции:
+```bash
+alembic init migrations
+```
+
+### Генерация первой миграции
+```bash
+alembic revision --autogenerate -m "initial migration"
+```
+
+### Примените созданную миграцию к базе данных:
+```bash
+alembic upgrade head
+```
+
 ### Poetry Система контроля зависимостей
 ### Создание нового проекта
 
@@ -83,7 +100,7 @@ poetry add requests
 Чтобы добавить пакет в секцию [tool.poetry.dev-dependencies] файла pyproject.toml, нужно использовать следующую команду:
 
 ```Bash
-poetry add <package-name> --dev
+poetry add <package-name> --group dev
 ```
 
 ### Обновление всех пакетов
@@ -93,6 +110,22 @@ poetry update
 ```
 Обновляет все пакеты до последних совместимых версий.
 
+
+### Синхронизация poetry с виртуальным окружением
+```Bash
+poetry install --sync
+```
+
+
+### Показать дерево пакетов
+```Bash
+poetry show --tree
+```
+
+### Для удаления пакета
+```Bash
+   poetry remove <имя_пакета>
+```
 
 ## Линтеры и форматеры:
 ```bash
@@ -114,3 +147,13 @@ autoflake ./app/booking/router.py
 ```bash
 pyright .
 ```
+
+
+## Полезные материалы:
+
+### Репозиторий оригинала
+https://github.com/mahenzon/micro-shop
+
+### FastAPI Best Practices 
+https://github.com/zhanymkanov/fastapi-best-practices
+
