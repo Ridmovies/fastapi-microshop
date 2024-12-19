@@ -8,3 +8,4 @@ class User(Base):
     username: Mapped[str] = mapped_column(String(32), unique=True)
 
     posts: Mapped[list["Post"]] = relationship("Post", back_populates="user")
+    profile: Mapped["Profile"] = relationship("Profile", back_populates="user")
