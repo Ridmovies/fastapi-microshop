@@ -2,25 +2,26 @@ from fastapi import APIRouter, status, HTTPException, Depends
 
 from api_v1.products import crud
 from api_v1.products.schemas import (
-    Product,
+    ProductSchema,
     ProductCreate,
     ProductUpdate,
     ProductUpdatePartial,
 )
 from core.models.database import SessionDep
 from api_v1.products.dependencies import product_by_id
+from core.models.models import Product
 
 router = APIRouter(prefix="/products", tags=["products"])
 
 
-@router.get("/", response_model=list[Product])
+@router.get("/", response_model=list[ProductSchema])
 async def get_products(session: SessionDep):
     return await crud.get_products(session=session)
 
 
 @router.post(
     "/",
-    response_model=Product,
+    response_model=ProductSchema,
     status_code=status.HTTP_201_CREATED,
 )
 async def create_product(
@@ -30,14 +31,14 @@ async def create_product(
     return await crud.create_product(session=session, product_in=product_in)
 
 
-@router.get("/{product_id}/", response_model=Product)
+@router.get("/{product_id}/", response_model=ProductSchema)
 async def get_product(
     product: Product = Depends(product_by_id),
 ):
     return product
 
 
-@router.put("/{product_id}/", response_model=Product)
+@router.put("/{product_id}/", response_model=ProductSchema)
 async def get_update_product(
     session: SessionDep,
     product_update: ProductUpdate,
@@ -49,7 +50,7 @@ async def get_update_product(
     return updated_product
 
 
-@router.patch("/{product_id}/", response_model=Product)
+@router.patch("/{product_id}/", response_model=ProductSchema)
 async def get_update_product(
     session: SessionDep,
     product_update: ProductUpdatePartial,

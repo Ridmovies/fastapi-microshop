@@ -6,4 +6,9 @@ from pydantic import BaseModel, EmailStr
 
 class CreateUser(BaseModel):
     username: Annotated[str, MinLen(3), MaxLen(20)]
-    email: EmailStr
+    # email: EmailStr
+
+
+class UserOutSchema(BaseModel):
+    id: int
+    username: Annotated[str, MinLen(3), MaxLen(20)]

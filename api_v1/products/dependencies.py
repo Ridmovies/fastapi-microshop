@@ -11,7 +11,7 @@ async def product_by_id(
     product_id: Annotated[int, Path],
     session: SessionDep,
 ) -> Product:
-    product = await crud.get_product(session=session, product_id=product_id)
+    product: Product = await crud.get_product(session=session, product_id=product_id)
     if product:
         return product
 
