@@ -14,7 +14,15 @@ from core.models.database import Base
 # from core.models.product import Product  # noqa
 # from core.models.post import Post  # noqa
 # from core.models.profile import Profile  # noqa
-from core.models.models import User, Profile, Post, Product  # noqa
+from core.models.models import (  # noqa
+    User,
+    Profile,
+    Post,
+    Product,
+    Order,
+    order_product_association,
+)
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

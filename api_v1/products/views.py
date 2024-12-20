@@ -11,7 +11,7 @@ from core.models.database import SessionDep
 from api_v1.products.dependencies import product_by_id
 from core.models.models import Product
 
-router = APIRouter(prefix="/products", tags=["products"])
+router = APIRouter()
 
 
 @router.get("/", response_model=list[ProductSchema])
