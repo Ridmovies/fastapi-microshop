@@ -26,8 +26,8 @@ def encode_jwt(
         expire = now + timedelta(minutes=expire_minutes)
     to_encode.update(
         exp=expire,
-        iat=now,
-        jti=str(uuid.uuid4()),
+        # iat=now,
+        # jti=str(uuid.uuid4()),
     )
     encoded = jwt.encode(
         to_encode,
@@ -46,6 +46,7 @@ def decode_jwt(
         token,
         public_key,
         algorithms=[algorithm],
+        # options={"verify_iat": False},
     )
     return decoded
 
