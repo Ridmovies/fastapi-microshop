@@ -27,7 +27,7 @@ def encode_jwt(
     to_encode.update(
         exp=expire,
         # iat=now,
-        # jti=str(uuid.uuid4()),
+        jti=str(uuid.uuid4()),
     )
     encoded = jwt.encode(
         to_encode,
